@@ -1,0 +1,31 @@
+<h1>{{'demo.name' | translate}}</h1>
+<div>
+<button type="button" [matMenuTriggerFor]="convert">button</button>
+<mat-menu #convert="matMenu">
+  <button mat-menu-iten (click)="convertdata('en')">En</button>
+  <button mat-menu-item (click)="convertdata('ar')">ar</button>
+</mat-menu>
+</div>
+<div class="pull-left">
+    <button  class="button" [matMenuTriggerFor]="SearchGrid">Export</button> &nbsp;
+    <mat-menu #SearchGrid="matMenu">
+      <button mat-menu-item (click)="ExportTOExcel()">Excel</button>
+      <button mat-menu-item (click)="ExportTOCsv()">Csv</button>
+      <!-- <button mat-menu-item (click)="ExportToPdf()">Pdf</button> -->
+      
+    </mat-menu>
+</div>
+
+
+
+
+<div id="result"*ngFor="let titl of tittles">
+  <mat-card  class="title">
+    <mat-card-title> <b>Name:</b> {{'Data.name'|translate}}</mat-card-title>
+    <mat-card-content> <b>S.no:</b> {{'Data.Sno'|translate}}</mat-card-content>
+    <mat-card-content> <b>Marks:</b> {{'Data.marks'|translate}}</mat-card-content>
+    <mat-card-content> <b>Percentage:</b> {{'Data.percentage'|translate}}</mat-card-content>
+  </mat-card>
+
+</div>
+<button mat-menu-item (click)="ExportToPdf()">Pdf</button>
